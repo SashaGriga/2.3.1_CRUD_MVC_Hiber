@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="CRUD_MVC_Hiber:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>CRUD_MVC_Hiber</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="CRUD_MVC_Hiber.war">
+      <element id="artifact" artifact-name="CRUD_MVC_Hiber:war exploded" />
+    </root>
+  </artifact>
+</component>
