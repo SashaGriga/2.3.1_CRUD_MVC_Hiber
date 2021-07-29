@@ -9,7 +9,7 @@ public interface UserService {
 
     void save(User user);
 
-    User show(int id);
+    User getUserById(int id);
 
     void update(int id, User user);
 

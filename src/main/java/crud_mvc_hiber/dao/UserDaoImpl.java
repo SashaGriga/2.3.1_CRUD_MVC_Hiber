@@ -30,24 +30,19 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     @SuppressWarnings("unchecked")
-    public User show(int id) {
-        TypedQuery<User> query = (TypedQuery<User>) entityManager.createQuery("from User where id = :id");
-        User user = (User) query.setParameter("id", id).getSingleResult();
-        return user;
+    public User getUserById(int id) {
+        return entityManager.find(User.class, id);
     }
 
     @Override
-    public void update(int id, User updateUser) {
-        User toUpdate = show(id);
-        toUpdate.setName(updateUser.getName());
-        toUpdate.setLatName(updateUser.getLatName());
-        toUpdate.setEmail(updateUser.getEmail());
+    public User update(User updateUser) {
+        entityManager.merge(updateUser);
+        return updateUser;
     }
 
     @Override
     @SuppressWarnings("unchecked")
     public void delete(int id) {
-        TypedQuery<User> query = (TypedQuery<User>) entityManager.createQuery("delete User where id = :id");
-        query.setParameter("id", id).executeUpdate();
+        entityManager.remove(entityManager.find(User.class, id));
     }
 }
